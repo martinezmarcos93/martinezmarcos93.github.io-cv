@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marcos Martinez — Asesor Impositivo & Contador Público</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2744;
+    --navy-mid: #2d3f6b;
+    --navy-light: #3d5080;
+    --accent: #c8a96e;
+    --accent-light: #e8d5a8;
+    --text: #1c1c1e;
+    --muted: #5a5e72;
+    --surface: #f7f5f0;
+    --white: #ffffff;
+    --border: #e2ddd5;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--surface);
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .page {
+    max-width: 960px;
+    margin: 40px auto;
+    background: var(--white);
+    box-shadow: 0 8px 48px rgba(26,39,68,0.12);
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    min-height: 100vh;
+  }
+
+  /* SIDEBAR */
+  .sidebar {
+    background: var(--navy);
+    padding: 40px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .profile-area {
+    text-align: center;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--navy-light);
+  }
+
+  .avatar {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    background: var(--navy-mid);
+    border: 2px solid var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px;
+    color: var(--accent);
+    margin: 0 auto 16px;
+    letter-spacing: 1px;
+  }
+
+  .profile-area h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px;
+    color: var(--white);
+    line-height: 1.2;
+    font-weight: 400;
+  }
+
+  .profile-area .role {
+    font-size: 11.5px;
+    color: var(--accent-light);
+    margin-top: 6px;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+  }
+
+  .s-section {
+    padding: 22px 0;
+    border-bottom: 1px solid var(--navy-light);
+  }
+
+  .s-section:last-child { border-bottom: none; }
+
+  .s-label {
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .contact-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 9px;
+    font-size: 12px;
+    color: #b0bcd4;
+    line-height: 1.4;
+  }
+
+  .contact-row svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+    opacity: 0.7;
+  }
+
+  .contact-row a {
+    color: #b0bcd4;
+    text-decoration: none;
+  }
+
+  .contact-row a:hover { color: var(--accent-light); }
+
+  .tag-cloud { display: flex; flex-wrap: wrap; gap: 5px; }
+
+  .tag {
+    background: var(--navy-mid);
+    color: #9bb0d4;
+    font-size: 11px;
+    padding: 3px 9px;
+    border-radius: 3px;
+    border: 0.5px solid var(--navy-light);
+  }
+
+  .interest-item {
+    font-size: 12px;
+    color: #b0bcd4;
+    padding: 5px 0;
+    border-bottom: 0.5px solid #2a3858;
+    line-height: 1.4;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .interest-item:last-child { border-bottom: none; }
+
+  .interest-item::before {
+    content: "→";
+    color: var(--accent);
+    font-size: 11px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* MAIN */
+  .main {
+    padding: 40px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .summary-block {
+    background: var(--surface);
+    border-left: 3px solid var(--accent);
+    padding: 14px 18px;
+    border-radius: 0 6px 6px 0;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .m-section {}
+
+  .m-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--navy);
+    letter-spacing: 0.02em;
+    padding-bottom: 6px;
+    border-bottom: 1.5px solid var(--navy);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .m-title::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+
+  .job { margin-bottom: 18px; }
+  .job:last-child { margin-bottom: 0; }
+
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 2px;
+  }
+
+  .job-title {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .job-date {
+    font-size: 11px;
+    color: var(--accent);
+    font-weight: 500;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .job-bullets {
+    list-style: none;
+    padding: 0;
+    margin-top: 6px;
+  }
+
+  .job-bullets li {
+    font-size: 12.5px;
+    color: var(--muted);
+    padding: 2.5px 0 2.5px 14px;
+    position: relative;
+    line-height: 1.55;
+  }
+
+  .job-bullets li::before {
+    content: "·";
+    position: absolute;
+    left: 3px;
+    color: var(--accent);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .edu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .edu-card {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px 14px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .edu-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--navy);
+  }
+
+  .edu-degree {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1.3;
+  }
+
+  .edu-school {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  .edu-year {
+    font-size: 11px;
+    color: var(--accent);
+    font-weight: 500;
+    margin-top: 5px;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+
+  .skill-group h4 {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 7px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .skill-item {
+    font-size: 12px;
+    color: var(--muted);
+    padding: 3px 0;
+    border-bottom: 0.5px solid var(--border);
+    line-height: 1.45;
+  }
+
+  .skill-item:last-child { border-bottom: none; }
+
+  .skill-item::before {
+    content: "· ";
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  footer {
+    text-align: center;
+    font-size: 11px;
+    color: var(--muted);
+    padding: 16px;
+    border-top: 1px solid var(--border);
+    background: var(--surface);
+    grid-column: 1 / -1;
+  }
+
+  @media print {
+    body { background: white; }
+    .page { margin: 0; box-shadow: none; max-width: 100%; }
+  }
+
+  @media (max-width: 640px) {
+    .page { grid-template-columns: 1fr; margin: 0; }
+    .sidebar { padding: 28px 20px; }
+    .main { padding: 24px 20px; }
+    .edu-grid, .skills-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="profile-area">
+      <div class="avatar">MM</div>
+      <h1>Marcos<br>Martinez</h1>
+      <p class="role">Asesor Impositivo · Contador Público (UNDEF)<br>Python & SQL · Automatización fiscal</p>
+    </div>
+
+    <div class="s-section">
+      <div class="s-label">Contacto</div>
+      <div class="contact-row">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M2 4l6 5 6-5M2 4h12v8H2V4z" stroke="#9ba8c0" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <a href="mailto:mm.analistacontable@gmail.com">mm.analistacontable@gmail.com</a>
+      </div>
+      <div class="contact-row">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 2h3l1.5 4-2 1.2a9 9 0 004.3 4.3L11 9.5l4 1.5v3c0 1-1 2-2 1.5A13 13 0 011.5 4C1 3 2 2 3 2z" stroke="#9ba8c0" stroke-width="1.3" stroke-linejoin="round"/></svg>
+        11-5106-2286
+      </div>
+      <div class="contact-row">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="14" height="14" rx="3" stroke="#9ba8c0" stroke-width="1.3"/><path d="M5 12V6.5M5 4.5V4M8 12V9c0-1.5 2-2 2-2V6c0-1-.8-1.5-2-1" stroke="#9ba8c0" stroke-width="1.3" stroke-linecap="round"/></svg>
+        <a href="https://www.linkedin.com/in/martinez-marcos-12155b203/" target="_blank">/in/martinez-marcos</a>
+      </div>
+      <div class="contact-row">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M8 1.5a5 5 0 100 10A5 5 0 008 1.5zM2 14c0-2.2 2.7-3.5 6-3.5s6 1.3 6 3.5" stroke="#9ba8c0" stroke-width="1.3" stroke-linecap="round"/></svg>
+        Ituzaingó, Buenos Aires
+      </div>
+    </div>
+
+    <div class="s-section">
+      <div class="s-label">Software & Herramientas</div>
+      <div class="tag-cloud">
+        <span class="tag">Python</span>
+        <span class="tag">SQL</span>
+        <span class="tag">Excel avanzado</span>
+        <span class="tag">Power BI</span>
+        <span class="tag">SAP</span>
+        <span class="tag">Tango</span>
+        <span class="tag">ADA4</span>
+      </div>
+    </div>
+
+    <div class="s-section">
+      <div class="s-label">Impuestos</div>
+      <div class="tag-cloud">
+        <span class="tag">IVA</span>
+        <span class="tag">Ingresos Brutos</span>
+        <span class="tag">SIRADIG</span>
+        <span class="tag">Monotributo</span>
+        <span class="tag">Conv. Multilateral</span>
+        <span class="tag">Bienes Personales</span>
+        <span class="tag">ARCA</span>
+      </div>
+    </div>
+
+    <div class="s-section">
+      <div class="s-label">Intereses profesionales</div>
+      <div class="interest-item">Automatización fiscal y administrativa</div>
+      <div class="interest-item">Análisis de datos en gestión contable</div>
+      <div class="interest-item">Mejora continua en estudios y pymes</div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+    <div class="summary-block">
+      Asesor impositivo con experiencia en liquidación mensual para monotributistas, Régimen General y Convenio Multilateral. Complemento la práctica contable con automatización de procesos en Python y SQL, desarrollando herramientas que optimizan tiempos operativos en gestión fiscal. Manejo de Tango, SAP y Excel avanzado. Perfil analítico orientado a la mejora de procesos en entornos administrativos y financieros.
+    </div>
+
+    <div class="m-section">
+      <div class="m-title">Experiencia laboral</div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="job-title">Asesor Impositivo Independiente</span>
+          <span class="job-date">Feb 2025 – Presente</span>
+        </div>
+        <ul class="job-bullets">
+          <li>Gestión integral de IVA, Ingresos Brutos y Ganancias 4° categoría (SIRADIG) para monotributistas y contribuyentes bajo Régimen General y Convenio Multilateral.</li>
+          <li>Automatización con Python: impresión masiva de documentación fiscal y autocompletado de formularios ARCA, reduciendo tiempos operativos significativamente.</li>
+          <li>Elaboración de libros IVA digitales y declaraciones juradas mensuales y anuales.</li>
+          <li>Asesoramiento personalizado en cumplimiento fiscal, organización documental y reducción de errores formales.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="job-title">Administración Serrano-Gatti</span>
+          <span class="job-date">May 2024 – Feb 2025</span>
+        </div>
+        <ul class="job-bullets">
+          <li>Reorganización del área legal y administrativa: digitalización de expedientes judiciales y sistema de seguimiento con planillas estructuradas.</li>
+          <li>Diseño de modelo de prorrateo de consumo eléctrico por unidad funcional.</li>
+          <li>Herramientas de control para cálculo actualizado de capital e intereses en procesos judiciales.</li>
+          <li>Cuentas corrientes, conciliaciones bancarias y soporte en armado de balances. Sistema ADA4.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="job-title">Estudio Contable Cristalli y Gestoría del Automotor</span>
+          <span class="job-date">Ene 2023 – Abr 2024</span>
+        </div>
+        <ul class="job-bullets">
+          <li>Liquidación mensual de IVA, IIBB (General, Simplificado y Multilateral) y Monotributo para pymes y particulares.</li>
+          <li>Herramienta propia para cálculo inverso de alícuotas y verificación de percepciones.</li>
+          <li>NextMedia: facturación y gestión de cobranzas en Tango. Lions Cars: desarrollo de sistema de registro de clientes y ventas.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="job-title">Librería Mandusic</span>
+          <span class="job-date">Feb 2019 – Dic 2022</span>
+        </div>
+        <ul class="job-bullets">
+          <li>Coordinación operativa y capacitación del equipo en herramientas tecnológicas para automatización de tareas.</li>
+          <li>Mejoras en control de stock, cierre de caja y gestión en sistema Tango.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="m-section">
+      <div class="m-title">Estudios universitarios</div>
+      <div class="edu-grid">
+        <div class="edu-card">
+          <div class="edu-degree">Contador Público</div>
+          <div class="edu-school">Universidad de la Defensa Nacional (UNDEF)</div>
+          <div class="edu-year">2024 – Presente</div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-degree">Licenciatura en Psicología</div>
+          <div class="edu-school">Universidad de Buenos Aires (UBA)</div>
+          <div class="edu-year">2019 – 2022</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="m-section">
+      <div class="m-title">Competencias y formación complementaria</div>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h4>Contabilidad y finanzas</h4>
+          <div class="skill-item">Registración contable y conciliaciones bancarias</div>
+          <div class="skill-item">Armado de balances y control de gestión</div>
+          <div class="skill-item">Presupuestos financieros</div>
+          <div class="skill-item">Análisis de riesgo crediticio</div>
+        </div>
+        <div class="skill-group">
+          <h4>Formación complementaria</h4>
+          <div class="skill-item">Auxiliar Contable e Impositivo — Gestar (2024)</div>
+          <div class="skill-item">Contabilidad Básica — UTN (2024)</div>
+          <div class="skill-item">Python Developer & Data Science — Coderhouse (2022–23)</div>
+          <div class="skill-item">Business Analytics — Coderhouse (2023)</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    Marcos Martinez · mm.analistacontable@gmail.com · Ituzaingó, Buenos Aires · 2026
+  </footer>
+</div>
+
+</body>
+</html>
