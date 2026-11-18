@@ -3,267 +3,177 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Curriculum Vitae de Marcos Martinez, Asesor Impositivo y Contador Público con experiencia en automatización (Python y SQL).">
-<title>Marcos Martinez — Asesor Impositivo & Contador Público</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --navy: #1a2744;
-    --navy-mid: #2d3f6b;
-    --navy-light: #3d5080;
-    --accent: #c8a96e;
-    --accent-light: #e8d5a8;
-    --text: #1c1c1e;
-    --muted: #5a5e72;
-    --surface: #f7f5f0;
-    --white: #ffffff;
-    --border: #e2ddd5;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'DM Sans', sans-serif; background: var(--surface); color: var(--text); font-size: 14px; line-height: 1.6; }
-  .page { max-width: 960px; margin: 40px auto; background: var(--white); box-shadow: 0 8px 48px rgba(26,39,68,0.12); display: grid; grid-template-columns: 280px 1fr; min-height: 100vh; }
-  .sidebar { background: var(--navy); padding: 40px 24px; display: flex; flex-direction: column; gap: 0; }
-  .profile-area { text-align: center; padding-bottom: 28px; border-bottom: 1px solid var(--navy-light); }
-  .avatar { width: 96px; height: 96px; border-radius: 50%; border: 2.5px solid var(--accent); display: block; margin: 0 auto 16px; overflow: hidden; background: var(--navy-mid); }
-  .avatar img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
-  .profile-area h1 { font-family: 'DM Serif Display', serif; font-size: 26px; color: var(--white); line-height: 1.2; font-weight: 400; }
-  .profile-area .role { font-size: 11.5px; color: var(--accent-light); margin-top: 6px; font-weight: 300; letter-spacing: 0.04em; }
-  .s-section { padding: 22px 0; border-bottom: 1px solid var(--navy-light); }
-  .s-section:last-child { border-bottom: none; }
-  .s-label { font-size: 9.5px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
-  .contact-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 9px; font-size: 12px; color: #b0bcd4; line-height: 1.4; }
-  .contact-row svg { flex-shrink: 0; margin-top: 2px; opacity: 0.7; }
-  .contact-row a { color: #b0bcd4; text-decoration: none; }
-  .contact-row a:hover { color: var(--accent-light); }
-  .tag-cloud { display: flex; flex-wrap: wrap; gap: 5px; }
-  .tag { background: var(--navy-mid); color: #9bb0d4; font-size: 11px; padding: 3px 9px; border-radius: 3px; border: 0.5px solid var(--navy-light); }
-  .interest-item { font-size: 12px; color: #b0bcd4; padding: 5px 0; border-bottom: 0.5px solid #2a3858; line-height: 1.4; display: flex; gap: 8px; align-items: flex-start; }
-  .interest-item:last-child { border-bottom: none; }
-  .interest-item::before { content: "→"; color: var(--accent); font-size: 11px; flex-shrink: 0; margin-top: 1px; }
-  .main { padding: 40px 36px; display: flex; flex-direction: column; gap: 28px; }
-  .summary-block { background: var(--surface); border-left: 3px solid var(--accent); padding: 14px 18px; border-radius: 0 6px 6px 0; font-size: 13px; color: var(--muted); line-height: 1.7; }
-  .m-title { font-family: 'DM Serif Display', serif; font-size: 15px; font-weight: 400; color: var(--navy); letter-spacing: 0.02em; padding-bottom: 6px; border-bottom: 1.5px solid var(--navy); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
-  .m-title::before { content: ""; display: inline-block; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
-  .job { margin-bottom: 18px; }
-  .job:last-child { margin-bottom: 0; }
-  .job-header { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-bottom: 2px; }
-  .job-title { font-size: 13.5px; font-weight: 500; color: var(--text); }
-  .job-date { font-size: 11px; color: var(--accent); font-weight: 500; white-space: nowrap; flex-shrink: 0; }
-  .job-bullets { list-style: none; padding: 0; margin-top: 6px; }
-  .job-bullets li { font-size: 12.5px; color: var(--muted); padding: 2.5px 0 2.5px 14px; position: relative; line-height: 1.55; }
-  .job-bullets li::before { content: "·"; position: absolute; left: 3px; color: var(--accent); font-size: 16px; font-weight: 700; line-height: 1.2; }
-  .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .edu-card { border: 1px solid var(--border); border-radius: 6px; padding: 12px 14px; position: relative; overflow: hidden; }
-  .edu-card::before { content: ""; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--navy); }
-  .edu-degree { font-size: 13px; font-weight: 500; color: var(--text); line-height: 1.3; }
-  .edu-school { font-size: 11.5px; color: var(--muted); margin-top: 4px; }
-  .edu-year { font-size: 11px; color: var(--accent); font-weight: 500; margin-top: 5px; }
-  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-  .skill-group h4 { font-size: 12px; font-weight: 500; color: var(--navy); margin-bottom: 7px; text-transform: uppercase; letter-spacing: 0.06em; }
-  .skill-item { font-size: 12px; color: var(--muted); padding: 3px 0; border-bottom: 0.5px solid var(--border); line-height: 1.45; }
-  .skill-item:last-child { border-bottom: none; }
-  .skill-item::before { content: "· "; color: var(--accent); font-weight: 700; }
-
-  /* GITHUB SECTION */
-  .gh-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-  .gh-card { border: 1px solid var(--border); border-radius: 6px; padding: 11px 13px; position: relative; overflow: hidden; transition: border-color 0.2s; text-decoration: none; display: block; }
-  .gh-card:hover { border-color: var(--accent); }
-  .gh-card::before { content: ""; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--accent); }
-  .gh-card-name { font-size: 12.5px; font-weight: 500; color: var(--navy); margin-bottom: 4px; display: flex; align-items: center; gap: 6px; }
-  .gh-card-name svg { flex-shrink: 0; opacity: 0.5; }
-  .gh-card-desc { font-size: 11.5px; color: var(--muted); line-height: 1.45; }
-  .gh-card-meta { display: flex; align-items: center; gap: 10px; margin-top: 7px; }
-  .gh-lang { font-size: 10.5px; color: #9ba8c0; display: flex; align-items: center; gap: 4px; }
-  .gh-lang::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #3572A5; }
-  .gh-footer { margin-top: 10px; text-align: right; }
-  .gh-footer a { font-size: 11px; color: var(--accent); text-decoration: none; letter-spacing: 0.03em; }
-  .gh-footer a:hover { text-decoration: underline; }
-
-  footer { text-align: center; font-size: 11px; color: var(--muted); padding: 16px; border-top: 1px solid var(--border); background: var(--surface); grid-column: 1 / -1; }
-  @media print { body { background: white; } .page { margin: 0; box-shadow: none; max-width: 100%; } }
-  @media (max-width: 640px) { .page { grid-template-columns: 1fr; margin: 0; } .sidebar { padding: 28px 20px; } .main { padding: 24px 20px; } .edu-grid, .skills-grid, .gh-grid { grid-template-columns: 1fr; } }
-</style>
+<title>Marcos Martinez — Asesor impositivo y desarrollador de software</title>
+<meta name="description" content="CV de Marcos Martinez: asesor impositivo (IVA, Ingresos Brutos, Monotributo, Ganancias) y desarrollador de software (Python, SQL, web y Android). Trabajo remoto, freelance o full-time.">
+<link rel="canonical" href="https://martinezmarcos93.github.io/martinezmarcos93.github.io-cv/">
+<link rel="alternate" hreflang="es" href="https://martinezmarcos93.github.io/martinezmarcos93.github.io-cv/">
+<link rel="alternate" hreflang="en" href="https://martinezmarcos93.github.io/martinezmarcos93.github.io-cv/en/">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Marcos Martinez — Asesor impositivo y desarrollador de software">
+<meta property="og:description" content="Liquidación de impuestos para monotributistas y Responsables Inscriptos, y sistemas de gestión a medida. Remoto.">
+<meta property="og:url" content="https://martinezmarcos93.github.io/martinezmarcos93.github.io-cv/">
+<meta property="og:image" content="https://martinezmarcos93.github.io/martinezmarcos93.github.io-cv/foto.jpg">
+<meta property="og:locale" content="es_AR">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231a2744'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='16' fill='%23e8d5a8' text-anchor='middle'%3EMM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="page">
-  <aside class="sidebar">
-    <div class="profile-area">
-      <div class="avatar">
-        <img src="data:image/jpeg;base64,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" alt="Marcos Martinez">
-      </div>
-      <h1>Marcos<br>Martinez</h1>
-      <p class="role">Asesor Impositivo · Contador Público (UNDEF)<br>Python & SQL · Automatización fiscal</p>
-    </div>
+<nav class="toolbar" aria-label="Idioma y descargas">
+  <a href="./" aria-current="true" hreflang="es">ES</a>
+  <a href="en/" hreflang="en" lang="en">EN</a>
+  <a href="cv-marcos-martinez-es.pdf" download>Descargar PDF</a>
+</nav>
 
-    <div class="s-section">
-      <div class="s-label">Contacto</div>
-      <div class="contact-row">
-        <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M2 4l6 5 6-5M2 4h12v8H2V4z" stroke="#9ba8c0" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <a href="mailto:mm.analistacontable@gmail.com">mm.analistacontable@gmail.com</a>
-      </div>
-      <div class="contact-row">
-        <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 2h3l1.5 4-2 1.2a9 9 0 004.3 4.3L11 9.5l4 1.5v3c0 1-1 2-2 1.5A13 13 0 011.5 4C1 3 2 2 3 2z" stroke="#9ba8c0" stroke-width="1.3" stroke-linejoin="round"/></svg>
-        11-5106-2286
-      </div>
-      <div class="contact-row">
-        <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="14" height="14" rx="3" stroke="#9ba8c0" stroke-width="1.3"/><path d="M5 12V6.5M5 4.5V4M8 12V9c0-1.5 2-2 2-2V6c0-1-.8-1.5-2-1" stroke="#9ba8c0" stroke-width="1.3" stroke-linecap="round"/></svg>
-        <a href="https://www.linkedin.com/in/martinez-marcos-12155b203/" target="_blank" rel="noopener noreferrer">/in/martinez-marcos</a>
-      </div>
-      <div class="contact-row">
-        <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M8 1.5a5 5 0 100 10A5 5 0 008 1.5zM2 14c0-2.2 2.7-3.5 6-3.5s6 1.3 6 3.5" stroke="#9ba8c0" stroke-width="1.3" stroke-linecap="round"/></svg>
-        Ituzaingó, Buenos Aires
-      </div>
-      <div class="contact-row">
-        <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M8 1C4.13 1 1 4.13 1 8c0 3.09 2.01 5.72 4.79 6.65.35.06.48-.15.48-.34v-1.2c-1.95.42-2.36-.94-2.36-.94-.32-.81-.78-1.03-.78-1.03-.64-.44.05-.43.05-.43.7.05 1.07.72 1.07.72.62 1.07 1.63.76 2.03.58.06-.45.24-.76.44-.93-1.56-.18-3.19-.78-3.19-3.46 0-.76.27-1.39.72-1.88-.07-.18-.31-.89.07-1.85 0 0 .59-.19 1.93.72A6.7 6.7 0 018 4.84c.6.003 1.2.08 1.76.24 1.34-.91 1.93-.72 1.93-.72.38.96.14 1.67.07 1.85.45.49.72 1.12.72 1.88 0 2.69-1.64 3.28-3.2 3.45.25.22.47.64.47 1.29v1.92c0 .19.13.4.48.33A7.003 7.003 0 0015 8c0-3.87-3.13-7-7-7z" stroke="#9ba8c0" stroke-width="0.5" fill="#9ba8c0" opacity="0.8"/></svg>
-        <a href="https://github.com/martinezmarcos93" target="_blank" rel="noopener noreferrer">martinezmarcos93</a>
-      </div>
+<main class="page">
+  <header class="header">
+    <img class="avatar" src="foto.jpg" alt="Foto de Marcos Martinez" width="104" height="104">
+    <div>
+      <h1>Marcos Martinez</h1>
+      <p class="headline">Asesor impositivo y desarrollador de software</p>
+      <p class="subline">Automatización fiscal · Sistemas de gestión a medida · Remoto, freelance o full-time</p>
+      <ul class="contact">
+        <li><a href="mailto:mm.analistacontable@gmail.com">mm.analistacontable@gmail.com</a></li>
+        <li><a href="tel:+5491151062286">+54 9 11 5106-2286</a></li>
+        <li><a href="https://www.linkedin.com/in/marcos-mart%C3%ADnez-12155b203/">linkedin.com/in/marcos-martínez-12155b203</a></li>
+        <li><a href="https://github.com/martinezmarcos93">github.com/martinezmarcos93</a></li>
+        <li>Ituzaingó, Buenos Aires, Argentina</li>
+      </ul>
     </div>
+  </header>
 
-    <div class="s-section">
-      <div class="s-label">Software & Herramientas</div>
-      <div class="tag-cloud">
-        <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Excel avanzado</span><span class="tag">Power BI</span><span class="tag">SAP</span><span class="tag">Tango</span><span class="tag">ADA4</span>
+  <section aria-labelledby="perfil">
+    <h2 id="perfil">Perfil</h2>
+    <p class="summary">Asesor impositivo con cartera propia de monotributistas y Responsables Inscriptos, y desarrollador de software para pymes y profesionales. En MMAC Dev Lab combino las dos prácticas: liquido IVA, Ingresos Brutos (incluido Convenio Multilateral), Monotributo y Ganancias, y construyo las herramientas que automatizan ese trabajo, desde scripts en Python hasta apps web y Android que usan clientes reales. Disponible para proyectos remotos freelance y para posiciones full-time como asesor impositivo o desarrollador.</p>
+  </section>
+
+  <section class="web-only" aria-labelledby="servicios">
+    <h2 id="servicios">Cómo puedo ayudarte</h2>
+    <div class="services">
+      <div class="service">
+        <h3>Asesoría impositiva</h3>
+        <p>Monotributo, IVA, Ingresos Brutos y Convenio Multilateral, Ganancias, recategorizaciones, planes de pago y presentaciones ante ARCA.</p>
       </div>
-    </div>
-
-    <div class="s-section">
-      <div class="s-label">Impuestos</div>
-      <div class="tag-cloud">
-        <span class="tag">IVA</span><span class="tag">Ingresos Brutos</span><span class="tag">SIRADIG</span><span class="tag">Monotributo</span><span class="tag">Conv. Multilateral</span><span class="tag">Bienes Personales</span><span class="tag">ARCA</span>
+      <div class="service">
+        <h3>Desarrollo a medida</h3>
+        <p>Sistemas de gestión, webs, apps Android y automatizaciones para estudios, comercios y profesionales independientes.</p>
       </div>
     </div>
+    <p class="cta">Escribime a <a href="mailto:mm.analistacontable@gmail.com">mm.analistacontable@gmail.com</a> o por <a href="https://wa.me/5491151062286">WhatsApp</a>.</p>
+  </section>
 
-    <div class="s-section">
-      <div class="s-label">Intereses profesionales</div>
-      <div class="interest-item">Automatización fiscal y administrativa</div>
-      <div class="interest-item">Análisis de datos en gestión contable</div>
-      <div class="interest-item">Mejora continua en estudios y pymes</div>
+  <section aria-labelledby="experiencia">
+    <h2 id="experiencia">Experiencia</h2>
+
+    <article class="job">
+      <div class="job-head">
+        <div><span class="job-role">Asesor impositivo y desarrollador</span> · <span class="job-org">MMAC Dev Lab (independiente, remoto)</span></div>
+        <span class="job-date">Feb 2025 – Presente</span>
+      </div>
+      <ul>
+        <li>Liquidación mensual y anual de IVA, Ingresos Brutos (Régimen General, Simplificado y Convenio Multilateral), Monotributo y Ganancias 4ª categoría (SIRADIG) para una cartera propia de monotributistas y Responsables Inscriptos.</li>
+        <li>Libros IVA digitales, declaraciones juradas, recategorizaciones, planes de pago y VEP ante ARCA.</li>
+        <li>Automatización en Python de tareas fiscales: impresión masiva de comprobantes (213 facturas en 3 minutos) y carga automática del formulario F.460 de ARCA en 1 minuto.</li>
+        <li>Desarrollo de sistemas de gestión a medida por rubro: app Android nativa (Kotlin) para un maestro mayor de obras, PWA para veterinarias, plataforma web multiusuario para un gimnasio, y sistemas para estudios contables, librerías y un estudio de tatuajes.</li>
+        <li>Sistema propio de gestión de la cartera de clientes, en producción sobre Cloudflare Workers y D1: categorías de monotributo, honorarios, tareas recurrentes y facturación por lote.</li>
+      </ul>
+    </article>
+
+    <article class="job">
+      <div class="job-head">
+        <div><span class="job-role">Encargado del área de Legales</span> · <span class="job-org">Administración Serrano-Gatti (consorcios)</span></div>
+        <span class="job-date">May 2024 – Feb 2025</span>
+      </div>
+      <ul>
+        <li>Responsable del área legal: reorganicé expedientes judiciales dispersos (clasificación, digitalización y seguimiento con planillas estructuradas).</li>
+        <li>Herramientas para calcular capital e intereses actualizados en procesos judiciales.</li>
+        <li>Modelo de prorrateo del consumo eléctrico por unidad funcional, según kWh consumidos y valor unitario.</li>
+        <li>Administración de consorcios asignados: cuentas corrientes, conciliaciones bancarias y soporte en balances (ADA4).</li>
+      </ul>
+    </article>
+
+    <article class="job">
+      <div class="job-head">
+        <div><span class="job-role">Contable-impositivo Junior</span> · <span class="job-org">Estudio Contable Cristalli y Gestoría del Automotor</span></div>
+        <span class="job-date">Ene 2023 – Abr 2024</span>
+      </div>
+      <ul>
+        <li>Liquidación mensual de IVA, Ingresos Brutos y Monotributo para personas y pymes; libros IVA, declaraciones juradas y SIRADIG.</li>
+        <li>Herramienta propia de cálculo inverso de alícuotas y retenciones para verificar las percepciones aplicadas.</li>
+        <li>Facturación y cobranzas en Tango para empresas clientes; sistema de registro de clientes y ventas para una agencia de autos.</li>
+      </ul>
+    </article>
+
+    <article class="job">
+      <div class="job-head">
+        <div><span class="job-role">Encargado</span> · <span class="job-org">Librería Mandusic</span></div>
+        <span class="job-date">Feb 2019 – Dic 2022</span>
+      </div>
+      <ul>
+        <li>Coordiné y capacité a un equipo de más de 10 personas; estandaricé procesos e incorporé herramientas para automatizar tareas administrativas y comerciales.</li>
+        <li>Mejoras en control de stock, cierre de caja y gestión en Tango.</li>
+      </ul>
+    </article>
+  </section>
+
+  <section class="web-only" aria-labelledby="proyectos">
+    <h2 id="proyectos">Proyectos</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="card-name">Gestión de obras (Android)</div>
+        <div class="card-desc">App nativa para un maestro mayor de obras: clientes, presupuestos, facturas y agenda con avisos. Funciona sin conexión.</div>
+        <div class="card-meta">Kotlin · SQLite · cliente real · privado</div>
+      </div>
+      <div class="card">
+        <div class="card-name">Gestión de cartera contable</div>
+        <div class="card-desc">Clientes, categorías de monotributo con historial, honorarios, tareas del mes y facturación por lote. En producción, con login.</div>
+        <div class="card-meta">JavaScript · Cloudflare Workers · D1 · privado</div>
+      </div>
+      <div class="card">
+        <div class="card-name">Gestión para gimnasios</div>
+        <div class="card-desc">Plataforma web multiusuario con API, roles y pruebas de aceptación. En desarrollo para un cliente.</div>
+        <div class="card-meta">TypeScript · cliente real</div>
+      </div>
+      <div class="card">
+        <div class="card-name">Gestión veterinaria</div>
+        <div class="card-desc">PWA con pacientes, historia clínica, recordatorios de vacunas, turnos e inventario.</div>
+        <div class="card-meta">TypeScript · PWA · privado</div>
+      </div>
+      <a class="card" href="https://github.com/martinezmarcos93/comercio-exterior-toolkit">
+        <div class="card-name">comercio-exterior-toolkit</div>
+        <div class="card-desc">Herramientas de escritorio para comercio exterior: costos de importación, divisas, clasificación arancelaria y cotizaciones en PDF.</div>
+        <div class="card-meta">Python · Tkinter · público</div>
+      </a>
+      <a class="card" href="https://github.com/martinezmarcos93/orquestador-multimotor">
+        <div class="card-name">orquestador-multimotor</div>
+        <div class="card-desc">Orquestación de agentes de programación con IA, con verificación automática por tests y aprobación humana antes de integrar.</div>
+        <div class="card-meta">Python · público</div>
+      </a>
     </div>
-  </aside>
+    <p class="note">Los proyectos de clientes se describen por rubro y su código es privado. Más proyectos en <a href="https://github.com/martinezmarcos93">github.com/martinezmarcos93</a>.</p>
+  </section>
 
-  <main class="main">
-    <div class="summary-block">
-      Asesor impositivo con experiencia en liquidación mensual para monotributistas, Régimen General y Convenio Multilateral. Complemento la práctica contable con automatización de procesos en Python y SQL, desarrollando herramientas que optimizan tiempos operativos en gestión fiscal. Manejo de Tango, SAP y Excel avanzado. Perfil analítico orientado a la mejora de procesos en entornos administrativos y financieros.
-    </div>
+  <section aria-labelledby="formacion">
+    <h2 id="formacion">Formación</h2>
+    <div class="edu-item"><span><strong>Contador Público</strong> · Universidad de la Defensa Nacional (UNDEF) · en curso, 2.º año (8 materias aprobadas)</span><span>2024 – Presente</span></div>
+    <div class="edu-item"><span><strong>Licenciatura en Psicología</strong> · Universidad de Buenos Aires (UBA)</span><span>2019 – 2022</span></div>
+    <p class="edu-extra">Complementaria: Python Developer y Data Science, Coderhouse (2022–2023) · Business Analytics, Coderhouse (2023) · Auxiliar Contable e Impositivo, Gestar (2024) · Contabilidad Básica, UTN (2024)</p>
+  </section>
 
-    <div class="m-section">
-      <div class="m-title">Experiencia laboral</div>
-      <div class="job">
-        <div class="job-header"><span class="job-title">Asesor Impositivo Independiente</span><span class="job-date">Feb 2025 – Presente</span></div>
-        <ul class="job-bullets">
-          <li>Gestión integral de IVA, Ingresos Brutos y Ganancias 4° categoría (SIRADIG) para monotributistas y contribuyentes bajo Régimen General y Convenio Multilateral.</li>
-          <li>Automatización con Python: impresión masiva de documentación fiscal y autocompletado de formularios ARCA, reduciendo tiempos operativos significativamente.</li>
-          <li>Elaboración de libros IVA digitales y declaraciones juradas mensuales y anuales.</li>
-          <li>Asesoramiento personalizado en cumplimiento fiscal, organización documental y reducción de errores formales.</li>
-        </ul>
-      </div>
-      <div class="job">
-        <div class="job-header"><span class="job-title">Administración Serrano-Gatti</span><span class="job-date">May 2024 – Feb 2025</span></div>
-        <ul class="job-bullets">
-          <li>Reorganización del área legal y administrativa: digitalización de expedientes judiciales y sistema de seguimiento con planillas estructuradas.</li>
-          <li>Diseño de modelo de prorrateo de consumo eléctrico por unidad funcional.</li>
-          <li>Herramientas de control para cálculo actualizado de capital e intereses en procesos judiciales.</li>
-          <li>Cuentas corrientes, conciliaciones bancarias y soporte en armado de balances. Sistema ADA4.</li>
-        </ul>
-      </div>
-      <div class="job">
-        <div class="job-header"><span class="job-title">Estudio Contable Cristalli y Gestoría del Automotor</span><span class="job-date">Ene 2023 – Abr 2024</span></div>
-        <ul class="job-bullets">
-          <li>Liquidación mensual de IVA, IIBB (General, Simplificado y Multilateral) y Monotributo para pymes y particulares.</li>
-          <li>Herramienta propia para cálculo inverso de alícuotas y verificación de percepciones.</li>
-          <li>NextMedia: facturación y gestión de cobranzas en Tango. Lions Cars: desarrollo de sistema de registro de clientes y ventas.</li>
-        </ul>
-      </div>
-      <div class="job">
-        <div class="job-header"><span class="job-title">Librería Mandusic</span><span class="job-date">Feb 2019 – Dic 2022</span></div>
-        <ul class="job-bullets">
-          <li>Coordinación operativa y capacitación del equipo en herramientas tecnológicas para automatización de tareas.</li>
-          <li>Mejoras en control de stock, cierre de caja y gestión en sistema Tango.</li>
-        </ul>
-      </div>
-    </div>
+  <section aria-labelledby="habilidades">
+    <h2 id="habilidades">Habilidades</h2>
+    <dl class="skills">
+      <dt>Impuestos</dt><dd>IVA · Ingresos Brutos · Convenio Multilateral · Monotributo · Autónomos · Ganancias 4ª categoría (SIRADIG) · Bienes Personales · ARCA</dd>
+      <dt>Contabilidad</dt><dd>Registración · conciliaciones bancarias · balances · presupuestos · análisis de riesgo crediticio</dd>
+      <dt>Desarrollo</dt><dd>Python · SQL / SQLite · JavaScript / TypeScript · HTML / CSS · Kotlin (Android) · Flask · Streamlit · PWA · Cloudflare Workers · Git / GitHub · Linux</dd>
+      <dt>Software</dt><dd>Tango · SAP · ADA4 · Excel avanzado · Power BI</dd>
+      <dt>Idiomas</dt><dd>Español nativo · Inglés avanzado</dd>
+    </dl>
+  </section>
 
-    <div class="m-section">
-      <div class="m-title">Proyectos en GitHub</div>
-      <div class="gh-grid">
-        <a class="gh-card" href="https://github.com/martinezmarcos93/software-contabilidad-integrador-" target="_blank" rel="noopener noreferrer">
-          <div class="gh-card-name">
-            <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M2 3h12v10H2z" stroke="#9ba8c0" stroke-width="1.2" stroke-linejoin="round"/><path d="M5 7h6M5 9.5h4" stroke="#9ba8c0" stroke-width="1.2" stroke-linecap="round"/></svg>
-            software-contabilidad-integrador
-          </div>
-          <div class="gh-card-desc">Software de contabilidad para estudios contables argentinos. Gestión integral adaptada al marco normativo local.</div>
-          <div class="gh-card-meta"><span class="gh-lang">Python</span></div>
-        </a>
-        <a class="gh-card" href="https://github.com/martinezmarcos93/herramientas_de_gestion" target="_blank" rel="noopener noreferrer">
-          <div class="gh-card-name">
-            <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M2 3h12v10H2z" stroke="#9ba8c0" stroke-width="1.2" stroke-linejoin="round"/><path d="M5 7h6M5 9.5h4" stroke="#9ba8c0" stroke-width="1.2" stroke-linecap="round"/></svg>
-            herramientas_de_gestion
-          </div>
-          <div class="gh-card-desc">Set de herramientas complementarias para oficinas administrativas: automatización de tareas repetitivas y gestión documental.</div>
-          <div class="gh-card-meta"><span class="gh-lang">Python</span></div>
-        </a>
-        <a class="gh-card" href="https://github.com/martinezmarcos93/Proyecto_Hanna" target="_blank" rel="noopener noreferrer">
-          <div class="gh-card-name">
-            <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M2 3h12v10H2z" stroke="#9ba8c0" stroke-width="1.2" stroke-linejoin="round"/><path d="M5 7h6M5 9.5h4" stroke="#9ba8c0" stroke-width="1.2" stroke-linecap="round"/></svg>
-            Proyecto_Hanna
-          </div>
-          <div class="gh-card-desc">Asistente de IA con notificaciones push para Windows y Telegram. Integración de modelos de lenguaje en flujos de trabajo reales.</div>
-          <div class="gh-card-meta"><span class="gh-lang">Python</span></div>
-        </a>
-        <a class="gh-card" href="https://github.com/martinezmarcos93/CyberToolkit" target="_blank" rel="noopener noreferrer">
-          <div class="gh-card-name">
-            <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M2 3h12v10H2z" stroke="#9ba8c0" stroke-width="1.2" stroke-linejoin="round"/><path d="M5 7h6M5 9.5h4" stroke="#9ba8c0" stroke-width="1.2" stroke-linecap="round"/></svg>
-            CyberToolkit
-          </div>
-          <div class="gh-card-desc">Suite educativa de ciberseguridad con herramientas operativas para aprendizaje práctico en entornos controlados.</div>
-          <div class="gh-card-meta"><span class="gh-lang">Python</span></div>
-        </a>
-      </div>
-      <div class="gh-footer">
-        <a href="https://github.com/martinezmarcos93" target="_blank" rel="noopener noreferrer">Ver portafolio completo → github.com/martinezmarcos93</a>
-      </div>
-    </div>
-
-    <div class="m-section">
-      <div class="m-title">Estudios universitarios</div>
-      <div class="edu-grid">
-        <div class="edu-card">
-          <div class="edu-degree">Contador Público</div>
-          <div class="edu-school">Universidad de la Defensa Nacional (UNDEF)</div>
-          <div class="edu-year">2024 – Presente</div>
-        </div>
-        <div class="edu-card">
-          <div class="edu-degree">Licenciatura en Psicología</div>
-          <div class="edu-school">Universidad de Buenos Aires (UBA)</div>
-          <div class="edu-year">2019 – 2022</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="m-section">
-      <div class="m-title">Competencias y formación complementaria</div>
-      <div class="skills-grid">
-        <div class="skill-group">
-          <h4>Contabilidad y finanzas</h4>
-          <div class="skill-item">Registración contable y conciliaciones bancarias</div>
-          <div class="skill-item">Armado de balances y control de gestión</div>
-          <div class="skill-item">Presupuestos financieros</div>
-          <div class="skill-item">Análisis de riesgo crediticio</div>
-        </div>
-        <div class="skill-group">
-          <h4>Formación complementaria</h4>
-          <div class="skill-item">Auxiliar Contable e Impositivo — Gestar (2024)</div>
-          <div class="skill-item">Contabilidad Básica — UTN (2024)</div>
-          <div class="skill-item">Python Developer & Data Science — Coderhouse (2022–23)</div>
-          <div class="skill-item">Business Analytics — Coderhouse (2023)</div>
-        </div>
-      </div>
-    </div>
-  </main>
-
-  <footer>
-    Marcos Martinez · mm.analistacontable@gmail.com · Ituzaingó, Buenos Aires · 2026
-  </footer>
-</div>
+  <footer>Marcos Martinez · Ituzaingó, Buenos Aires · Actualizado en noviembre de 2026</footer>
+</main>
 </body>
 </html>

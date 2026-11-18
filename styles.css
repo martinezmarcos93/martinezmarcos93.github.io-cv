@@ -1,0 +1,200 @@
+/* CV de Marcos Martinez — estilos compartidos por /index.html (ES) y /en/index.html (EN).
+   Una sola columna en pantalla y en impresión: el PDF sale de este mismo HTML
+   (scripts/build-pdf.sh) y un ATS lo lee en orden. */
+
+:root {
+  --navy: #1a2744;
+  --navy-mid: #2d3f6b;
+  --accent: #a8833f;          /* dorado oscurecido: contraste AA sobre blanco */
+  --accent-soft: #e8d5a8;
+  --text: #1c1c1e;
+  --muted: #4d5164;
+  --surface: #f7f5f0;
+  --white: #ffffff;
+  --border: #e2ddd5;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+a { color: var(--navy-mid); }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.page {
+  max-width: 860px;
+  margin: 32px auto;
+  background: var(--white);
+  box-shadow: 0 8px 48px rgba(26, 39, 68, 0.12);
+  padding: 40px 48px 32px;
+}
+
+/* ---------- barra superior (solo web) ---------- */
+.toolbar {
+  max-width: 860px;
+  margin: 24px auto -16px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 0 4px;
+}
+.toolbar a {
+  font-size: 13px;
+  text-decoration: none;
+  color: var(--navy);
+  border: 1px solid var(--border);
+  background: var(--white);
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+.toolbar a:hover { border-color: var(--accent); }
+.toolbar a[aria-current="true"] { background: var(--navy); color: var(--white); border-color: var(--navy); }
+
+/* ---------- cabecera ---------- */
+.header {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--navy);
+}
+.avatar {
+  width: 104px; height: 104px;
+  border-radius: 50%;
+  border: 3px solid var(--accent-soft);
+  object-fit: cover;
+  object-position: center top;
+  flex-shrink: 0;
+}
+.header h1 {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-weight: 400;
+  font-size: 34px;
+  line-height: 1.1;
+  color: var(--navy);
+}
+.headline { font-size: 16px; font-weight: 500; color: var(--text); margin-top: 4px; }
+.subline  { font-size: 13.5px; color: var(--muted); }
+.contact {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 16px;
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.contact a { color: var(--muted); text-decoration: none; }
+.contact a:hover { color: var(--navy); text-decoration: underline; }
+
+/* ---------- secciones ---------- */
+section { margin-top: 22px; }
+h2 {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-weight: 400;
+  font-size: 19px;
+  color: var(--navy);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 3px;
+  margin-bottom: 10px;
+}
+.summary { color: var(--text); }
+
+.job { margin-bottom: 14px; }
+.job:last-child { margin-bottom: 0; }
+.job-head { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; flex-wrap: wrap; }
+.job-role { font-weight: 500; }
+.job-org { color: var(--muted); }
+.job-date { font-size: 13px; color: var(--accent); font-weight: 500; white-space: nowrap; }
+.job ul { margin: 4px 0 0 18px; }
+.job li { margin: 2px 0; color: var(--text); }
+.job li::marker { color: var(--accent); }
+
+.edu-item { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 4px; }
+.edu-item span:first-child { flex: 1 1 auto; min-width: 0; }
+.edu-item span:last-child { color: var(--accent); font-size: 13px; font-weight: 500; white-space: nowrap; }
+.edu-extra { color: var(--muted); font-size: 14px; margin-top: 4px; }
+
+.skills { display: grid; grid-template-columns: max-content 1fr; gap: 4px 16px; }
+.skills dt { font-weight: 500; color: var(--navy); }
+.skills dd { color: var(--text); }
+
+/* ---------- solo web: servicios y proyectos ---------- */
+.services { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.service {
+  background: var(--surface);
+  border-left: 3px solid var(--accent);
+  padding: 12px 16px;
+  border-radius: 0 6px 6px 0;
+}
+.service h3 { font-size: 15px; font-weight: 500; color: var(--navy); margin-bottom: 4px; }
+.service p { font-size: 14px; color: var(--muted); }
+.cta { margin-top: 12px; font-size: 14px; }
+
+.cards { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.card {
+  display: block;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 11px 14px;
+  text-decoration: none;
+  color: inherit;
+}
+a.card:hover { border-color: var(--accent); }
+.card-name { font-weight: 500; color: var(--navy); font-size: 14.5px; }
+.card-desc { font-size: 13.5px; color: var(--muted); margin-top: 2px; }
+.card-meta { font-size: 12px; color: var(--accent); margin-top: 6px; font-weight: 500; }
+.note { font-size: 13px; color: var(--muted); margin-top: 8px; }
+
+footer {
+  margin-top: 26px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* ---------- celular ---------- */
+@media (max-width: 640px) {
+  body { font-size: 14.5px; }
+  .toolbar { margin: 12px 16px -4px; padding: 0; }
+  .page { margin: 16px; padding: 24px 18px; }
+  .header { flex-direction: column; text-align: center; gap: 12px; }
+  .contact { justify-content: center; }
+  .header h1 { font-size: 28px; }
+  .services, .cards { grid-template-columns: 1fr; }
+  .skills { grid-template-columns: 1fr; gap: 0; }
+  .skills dd { margin-bottom: 8px; }
+}
+
+/* ---------- impresión / PDF: una página A4 por idioma, sin foto ---------- */
+@page { size: A4; margin: 10mm 12mm; }
+@media print {
+  body { background: var(--white); font-size: 9.3pt; line-height: 1.34; }
+  .toolbar, .web-only, .avatar { display: none !important; }
+  .page { max-width: none; margin: 0; padding: 0; box-shadow: none; }
+  .header { padding-bottom: 8px; gap: 0; }
+  .header h1 { font-size: 21pt; }
+  .headline { font-size: 11pt; margin-top: 1px; }
+  .subline { font-size: 9.2pt; }
+  .contact { font-size: 8.8pt; margin-top: 3px; gap: 0 12px; }
+  .contact a { color: var(--text); }
+  section { margin-top: 9px; }
+  h2 { font-size: 12pt; margin-bottom: 4px; padding-bottom: 1px; }
+  .job { margin-bottom: 6px; break-inside: avoid; }
+  .job-date { font-size: 8.8pt; }
+  .job ul { margin-top: 1px; }
+  .job li { margin: 0.5px 0; }
+  .edu-item span:last-child { font-size: 8.8pt; }
+  .edu-extra { font-size: 9pt; margin-top: 1px; }
+  .skills { gap: 1px 12px; }
+  footer { display: none; }
+  a { text-decoration: none; color: inherit; }
+}

@@ -1,41 +1,30 @@
-# Marcos Martinez - CV Interactivo
+# Marcos Martinez — CV
 
-[![Sitio web](https://img.shields.io/badge/Sitio_Web-En_vivo-success)](https://martinezmarcos93.github.io/martinezmarcos93.github.io-cv/)
-[![Perfil de LinkedIn](https://img.shields.io/badge/LinkedIn-Marcos_Martinez-blue)](https://www.linkedin.com/in/martinez-marcos-12155b203/)
+Asesor impositivo y desarrollador de software (MMAC Dev Lab). Trabajo remoto, freelance o full-time.
 
-Este repositorio contiene el código fuente de mi Curriculum Vitae interactivo, diseñado para presentar mi perfil profesional, experiencia laboral y proyectos de manera limpia, accesible y adaptativa (responsive).
+- 🌐 **Web (ES):** https://martinezmarcos93.github.io/martinezmarcos93.github.io-cv/
+- 🌐 **Web (EN):** https://martinezmarcos93.github.io/martinezmarcos93.github.io-cv/en/
+- 📄 **PDF:** [español](cv-marcos-martinez-es.pdf) · [english](cv-marcos-martinez-en.pdf) · [bilingüe, 2 páginas](MMCV-2026-27.pdf)
+- ✉️ mm.analistacontable@gmail.com · [LinkedIn](https://www.linkedin.com/in/marcos-mart%C3%ADnez-12155b203/)
 
-## 🚀 Sobre mí
+## Cómo está hecho
 
-Soy **Asesor Impositivo y Contador Público** en formación (UNDEF), con experiencia en liquidación de impuestos y gestión administrativa. Me especializo en combinar la práctica contable tradicional con la **automatización de procesos usando Python y SQL**, desarrollando herramientas tecnológicas que optimizan los tiempos operativos en la gestión fiscal.
-
-## 🛠️ Tecnologías y Herramientas
-
-El proyecto está desarrollado utilizando tecnologías web estándar, sin dependencias externas complejas para garantizar la máxima velocidad y compatibilidad en cualquier entorno:
-
-- **HTML5**: Estructura semántica clara y ordenada.
-- **CSS3 Vanilla**: Diseño moderno implementado con variables CSS (`:root`), flexbox, CSS Grid y diseño responsivo (`@media queries`).
-- **Diseño Adaptativo**: Optimizado para dispositivos móviles, tablets, visualización en escritorio y formato de impresión (`@media print`).
-
-## 📂 Estructura del Proyecto
+El HTML es la **fuente única**: los PDF se generan desde la misma página con estilos de impresión,
+así la web y el PDF no pueden contradecirse. Una sola columna para que los sistemas ATS lean el texto en orden.
 
 ```text
-├── index.html   # Archivo principal que contiene la estructura HTML y los estilos (CSS integrado)
-└── README.md    # Documentación del proyecto
+├── index.html            # CV en español
+├── en/index.html         # CV en inglés
+├── styles.css            # estilos compartidos (pantalla, celular e impresión A4)
+├── foto.jpg              # foto (solo en la web; el PDF va sin foto)
+├── scripts/build-pdf.sh  # genera los tres PDF con Chrome headless + pdfunite
+└── cv-marcos-martinez*.pdf
 ```
 
-## 🌐 Enlace al Sitio
+## Actualizar
 
-Puedes visualizar el CV en vivo alojado a través de GitHub Pages:
-👉 **[Ver Curriculum Vitae interactivo](https://martinezmarcos93.github.io/martinezmarcos93.github.io-cv/)**
+1. Editar `index.html` y `en/index.html` (mantener las dos versiones con el mismo contenido).
+2. `bash scripts/build-pdf.sh` → debe informar 1 página para ES, 1 para EN y 2 para el bilingüe.
+3. Commit y push: GitHub Pages publica solo.
 
-## ✉️ Contacto
-
-Si deseas ponerte en contacto conmigo para oportunidades laborales, consultas o colaboraciones, puedes hacerlo a través de:
-
-- **Email**: [mm.analistacontable@gmail.com](mailto:mm.analistacontable@gmail.com)
-- **LinkedIn**: [in/martinez-marcos](https://www.linkedin.com/in/martinez-marcos-12155b203/)
-- **GitHub**: [martinezmarcos93](https://github.com/martinezmarcos93)
-
----
-*Desarrollado y mantenido por Marcos Martinez.*
+Las secciones con la clase `web-only` (servicios, proyectos) se ven en la web y no van al PDF.
